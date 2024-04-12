@@ -1,0 +1,8 @@
+{
+    "index": {
+        "fields": ["id","status"]
+    },
+    "ddoc": "v2xIndexDoc",
+    "name": "v2xIndex",
+    "type": "json"
+}
