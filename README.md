@@ -3,7 +3,7 @@ A Blockchain based 5G V2X communication platform in which the main entities in 5
 
 # Architecture of proposed System
 <p align="center">
-<img src="docs/fig1.png" height="300">
+<img src="docs/fig1.pdf" height="300">
 </p>
 
 <p align="center">
