@@ -1,0 +1,100 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'application'
+    //id 'checkstyle'
+    id 'jacoco'
+}
+
+group 'org.hyperledger.fabric.samples'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    
+    implementation 'org.hyperledger.fabric-chaincode-java:fabric-chaincode-shim:2.4.1'
+    implementation 'org.json:json:+'
+    implementation 'com.owlike:genson:1.5'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
+    testImplementation 'org.hyperledger.fabric-chaincode-java:fabric-chaincode-shim:2.4.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.4.2'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
+    testImplementation 'org.mockito:mockito-core:2.+'
+    implementation "com.google.guava:guava:16+"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+application {
+    mainClass = 'org.hyperledger.fabric.contract.ContractRouter'
+}
+
+
+
+//jacocoTestReport {
+    //dependsOn test
+//}
+
+//jacocoTestCoverageVerification {
+    //violationRules {
+        //rule {
+            //limit {
+               // minimum = 0.9
+            //}
+        //}
+    //}
+
+    //finalizedBy jacocoTestReport
+//}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+mainClassName = 'org.hyperledger.fabric.contract.ContractRouter'
+
+shadowJar {
+    baseName = 'chaincode'
+    version = null
+    classifier = null
+
+    manifest {
+        attributes 'Main-Class': 'org.hyperledger.fabric.contract.ContractRouter'
+    }
+}
+
+//copy {
+    //from '/home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java'
+    //into '/home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java/build/install/basic'
+    //include 'META-INF/**'
+//}
+
+task copyJarToBin {
+    doLast {
+        copy {
+            from '/home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java'
+            into "/home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java/build/install/basic"
+            include 'META-INF/**'
+        }
+
+    }
+}
+
+
+//task collectDependencies(type: Copy) {
+	//from "$home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java"
+	//into "$home/fetulhak/fabric-samples/asset-transfer-basic/chaincode-java/build/install/basic"
+//}
+
+check.dependsOn jacocoTestCoverageVerification
+installDist.dependsOn check
