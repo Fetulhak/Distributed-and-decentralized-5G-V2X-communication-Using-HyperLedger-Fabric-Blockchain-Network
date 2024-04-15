@@ -10,7 +10,7 @@ A Blockchain based 5G V2X communication platform in which the main entities in 5
 
 # Architecture of proposed System
 <p align="center">
-<img src="docs/fig1.png" height="300">
+<img src="docs/fig1.png" height="400">
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@ A Blockchain based 5G V2X communication platform in which the main entities in 5
 ## 🗂️ Structure of organization peeers and their interconnection through the channels and chainodes
 
 <p align="center">
-<img src="docs/fig2.png" height="300">
+<img src="docs/fig2.png" height="500">
 </p>
 
 <p align="center">
