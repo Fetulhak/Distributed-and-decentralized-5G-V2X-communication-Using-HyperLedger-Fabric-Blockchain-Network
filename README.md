@@ -28,4 +28,14 @@ A Blockchain based 5G V2X communication platform in which the main entities in 5
 - Download and install all the requirments mentioned above and replace the modified or customized files in the fabric samples of original hyperledger fabric repo with the ones provided in this repo
 - Under the asset-transfer-basic folder replace the chaincode java folder one by one for the chaincodes provided on this repo for enrollment information, authorization information, V2X information, intermediary information and trust list information
 - Under the test-network forlder of the orginal HLF repo replace the files and folder provided on this repo as well
+
+
+## 🗂️ Structure of organization peeers and their interconnection through the channels and chainodes
+
+<p align="center">
+<img src="docs/fig2.png" height="300">
+</p>
+
+<p align="center">
+
   
